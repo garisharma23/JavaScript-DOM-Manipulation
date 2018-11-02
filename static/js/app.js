@@ -1,11 +1,10 @@
-// Getting references to the tbody element, input field and button
 var tbody = document.querySelector("tbody");
 var dateInput = document.querySelector("#datetime");
 var stateInput = document.querySelector("#state");
 var searchBtn = document.querySelector("#filter-btn");
-// var cityInput= document.querySelector("#city");
-// var countryInput = document.querySelector("#country");
-// var shapeInput = document.querySelector("#shape");
+var cityInput= document.querySelector("#city");
+var countryInput = document.querySelector("#country");
+var shapeInput = document.querySelector("#shape");
 
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
 searchBtn.addEventListener("click", function (event) {
@@ -38,10 +37,12 @@ function renderTable() {
 
 function handleSearchButtonClick(event) {
   event.preventDefault();
-  // Format the user's search by removing leading and trailing whitespace, lowercase the string
+  //Remove spaces, lowercase the input given by the user
   var filterDate = dateInput.value.trim();
   var filterState = stateInput.value.trim().toLowerCase();
-  // var filterCity = cityInput.value.trim().toLowerCase();
+  var filterCity = cityInput.value.trim().toLowerCase();
+  var filterCountry = countryInput.value.trim().toLowerCase();
+  var filterShape = shapeInput.value.trim().toLowerCase();
 
   if (filterDate.length != 0) {
     filteredUFO = data.filter(function (sighting) {
@@ -61,19 +62,37 @@ function handleSearchButtonClick(event) {
   else {
     filteredUFO = filteredUFO
   }
-  // if (filterCity.length!=0){
-  //   filteredUFO = filteredUFO.filter(function(sighting){
-  //     var sightingCity = sighting.city;
-  //     return sightingCity === filterCity;
-  //   });
-  // }
-  // else {
-  //   filteredUFO = filteredUFO
-  // }
+  if (filterCity.length!=0){
+    filteredUFO = filteredUFO.filter(function(sighting){
+      var sightingCity = sighting.city;
+      return sightingCity === filterCity;
+    });
+  }
+  else {
+    filteredUFO = filteredUFO
+  }
+  if (filterCountry.length!=0){
+    filteredUFO = filteredUFO.filter(function(sighting){
+      var sightingCountry = sighting.country;
+      return sightingCountry === filterCountry;
+    });
+  }
+  else {
+    filteredUFO = filteredUFO
+  }
+  if (filterShape.length!=0){
+    filteredUFO = filteredUFO.filter(function(sighting){
+      var sightingShape = sighting.shape;
+      return sightingShape === filterShape;
+    });
+  }
+  else {
+    filteredUFO = filteredUFO
+  }
 
   
   renderTable();
 
 }
-// Render the table for the first time on page load
+// Render the table for the first time when the page loads
 renderTable();
