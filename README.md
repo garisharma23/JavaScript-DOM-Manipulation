@@ -1,4 +1,9 @@
+published on : https://garisharma23.github.io/JavaScript-DOM-Manipulation/
+
+
+
 # Unit 14 | Assignment - JavaScript and DOM Manipulation
+
 
 ## Background
 
@@ -41,20 +46,4 @@ You can handle this... right? The planet Earth needs to know what we have found!
 
 * [UFO Sightings Data](StarterCode/static/js/data.js)
 
-### Assessment
 
-Your final product will be assessed on the following metrics:
-
-* Completion of all steps in chosen level
-
-* Visual attraction
-
-* Usability
-
-**Good luck!**
-
-- - -
-
-### Copyright
-
-Data Boot Camp © 2018. All Rights Reserved.
